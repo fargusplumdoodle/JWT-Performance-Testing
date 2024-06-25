@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Create the build directory if it doesn't exist
+mkdir -p ./build
+
+# Build for Linux AMD64
+GOOS=linux GOARCH=amd64 go build -o ./build/cpu-performance-testing-linux-amd64 main.go
+
+# Build for macOS ARM64
+GOOS=darwin GOARCH=arm64 go build -o ./build/cpu-performance-testing-darwin-arm64 main.go
+
+# Build for Linux ARM64
+GOOS=linux GOARCH=arm64 go build -o ./build/cpu-performance-testing-linux-arm64 main.go
+
+# Optional: Add execute permissions to the binaries
+chmod +x ./build/cpu-performance-testing-*
